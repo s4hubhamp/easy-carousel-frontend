@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
   name: "ui",
-  initialState: { showError: false, error: null },
+  initialState: { showError: false, error: null, isLoading: false },
   reducers: {
-    toggle(state) {
+    toggleShowError(state) {
       state.showError = !state.showError;
     },
     showNotification(state, action) {
@@ -13,6 +13,9 @@ const uiSlice = createSlice({
         title: action.payload.title,
         message: action.payload.message,
       };
+    },
+    toggleIsLoading(state) {
+      state.isLoading = !state.isLoading;
     },
   },
 });
