@@ -4,7 +4,7 @@ import uiSlice from "./ui-slice";
 import photosSlice from "./photos-slice";
 
 const store = configureStore({
-  reducer: { ui: uiSlice.reducer, cart: photosSlice.reducer },
+  reducer: { ui: uiSlice.reducer, photos: photosSlice.reducer },
 });
 
 export default store;

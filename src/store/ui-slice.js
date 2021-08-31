@@ -10,7 +10,6 @@ const uiSlice = createSlice({
     showNotification(state, action) {
       state.error = {
         status: action.payload.status,
-        title: action.payload.title,
         message: action.payload.message,
       };
     },
