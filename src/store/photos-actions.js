@@ -13,7 +13,9 @@ export const fetchPhotos = (category, qty = 5) => {
       console.dir(response.data.photos);
       dispatch(uiActions.toggleIsLoading());
 
-      dispatch(PhotosActions.replacePhotos({ photos: response.data.photos }));
+      dispatch(
+        PhotosActions.replacePhotos({ photos: response.data.photos, category })
+      );
     } catch (e) {
       dispatch(uiActions.toggleIsLoading());
       dispatch(uiActions.toggleShowError());

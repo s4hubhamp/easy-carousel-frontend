@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import "./Spinner.css";
 
 const Spinner = () => {
+  const showSpinner = useSelector((state) => state.ui.isLoading);
+
   return (
     <div className="spinner">
-      <div className="lds-hourglass"></div>
+      {showSpinner && <div className="lds-hourglass"></div>}
     </div>
   );
 };

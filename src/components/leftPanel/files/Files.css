@@ -1,3 +1,51 @@
 .files {
-  flex-grow: 1;
+  margin-top: 2rem;
+}
+
+.files__title {
+  color: blueviolet;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.files__list {
+  border-left: 1px solid rgb(207, 202, 202);
+  border-right: 1px solid rgb(207, 202, 202);
+  border-top: 1px solid rgb(207, 202, 202);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-height: 300px;
+  max-height: 380px;
+  overflow: scroll;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  border-bottom: 1px solid rgb(207, 202, 202);
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+}
+
+.file-item p {
+  /* font-size: 1.1rem; */
+  line-height: 1;
+}
+
+.file-item .image-thumb {
+  max-height: 32px;
+  max-width: 32px;
+}
+
+.image-thumb img {
+  max-width: 100%;
+}
+
+.file-item.active {
+  background: rgb(236, 220, 251);
 }
