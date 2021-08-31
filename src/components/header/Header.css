@@ -1,0 +1,11 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.carousel h2 {
+  text-decoration: underline;
+  margin: 0;
+  padding: 1.5rem 0;
+}
