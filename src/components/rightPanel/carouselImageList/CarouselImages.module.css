@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow-x: scroll;
+  padding: 2rem 0 0;
+  border-top: 1px solid black;
+  min-height: 230px;
+}
+
+.img {
+  max-width: 150px;
+  min-height: 175px;
+  cursor: pointer;
+}
+
+.img img {
+  max-width: 100%;
+}
+
+.current {
+  color: tomato;
+}

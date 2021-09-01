@@ -10,7 +10,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPhotos("nature"));
+    dispatch(fetchPhotos("nature", 8));
   }, [dispatch]);
 
   return (

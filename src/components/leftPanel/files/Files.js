@@ -9,10 +9,11 @@ const Files = () => {
       <p className="files__title">files</p>
       <ul className="files__list">
         {images.map((image) => (
-          <li className="file-item" key={image.id}>
+          <li className="file-item" key={image.id} draggable="true">
             <p>{image.id}.jpg</p>
             <div className="image-thumb">
               <img
+                draggable="false"
                 src={image.thumb}
                 alt={
                   image.description

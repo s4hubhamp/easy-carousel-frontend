@@ -5,13 +5,13 @@ import "./Categories.css";
 import { fetchPhotos } from "../../../store/photos-actions";
 
 const categoriesList = [
-  { category: "nature", qty: 7 },
+  { category: "nature", qty: 11 },
   { category: "architecture", qty: 8 },
-  { category: "technology", qty: 6 },
+  { category: "technology", qty: 10 },
   { category: "travel", qty: 9 },
-  { category: "people", qty: 7 },
+  { category: "people", qty: 8 },
   { category: "animals", qty: 10 },
-  { category: "history", qty: 7 },
+  { category: "history", qty: 9 },
   { category: "film", qty: 9 },
   { category: "arts", qty: 10 },
 ];

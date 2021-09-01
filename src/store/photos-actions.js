@@ -3,7 +3,7 @@ import { PhotosActions } from "./photos-slice";
 
 import axios from "../apis/index";
 
-export const fetchPhotos = (category, qty = 5) => {
+export const fetchPhotos = (category, qty = 8) => {
   return async (dispatch) => {
     try {
       dispatch(uiActions.toggleIsLoading());

@@ -1,0 +1,16 @@
+.container {
+  flex-grow: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3%;
+}
+
+.loaded-image {
+  width: 350px;
+  height: 350px;
+}
+
+.img {
+  max-width: 100%;
+}
