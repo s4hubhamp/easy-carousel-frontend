@@ -12,8 +12,22 @@ const CarouselImages = () => {
     dispatch(CarouselActions.setCurrentImage({ current: photo }));
   };
 
+  const allowDrop = (event) => {
+    event.preventDefault();
+  };
+
+  const drop = (event) => {
+    event.preventDefault();
+    const id = event.dataTransfer.getData("id");
+    console.log(id);
+  };
+
+  const drag = (event, id) => {
+    event.dataTransfer.setData("id", id);
+  };
+
   return (
-    <div className={classes.container}>
+    <div className={classes.container} onDragOver={allowDrop} onDrop={drop}>
       {photos.map((p) => (
         <div
           className={`${classes.img} ${
@@ -24,6 +38,10 @@ const CarouselImages = () => {
               : ""
           }`}
           key={p.id}
+          draggable="true"
+          onDragStart={(event) => {
+            drag(event, p.id);
+          }}
           onClick={() => {
             setCurrentImage(p);
           }}

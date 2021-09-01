@@ -11,7 +11,6 @@ export const fetchPhotos = (category, qty = 8) => {
       const response = await axios.get(
         "/search/photos/" + category + "?qty=" + qty
       );
-      console.dir(response.data.photos);
       dispatch(uiActions.toggleIsLoading());
 
       dispatch(
