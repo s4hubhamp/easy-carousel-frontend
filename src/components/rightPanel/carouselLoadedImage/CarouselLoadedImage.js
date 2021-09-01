@@ -1,10 +1,17 @@
 import { useSelector } from "react-redux";
 import classes from "./CarouselLoadedImage.module.css";
+import Spinner from "../../spinner/Spinner";
 
 const CarouselLoadedImage = () => {
-  const currentImage = useSelector((state) => state.photos.currentImage);
+  const currentImage = useSelector((state) => state.carousel.currentImage);
 
-  console.log("inside CarouselImages");
+  if (currentImage === null) {
+    return (
+      <div style={{ margin: "auto" }}>
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className={classes.container}>
@@ -25,7 +32,11 @@ const CarouselLoadedImage = () => {
       </div>
 
       <div className={classes["loaded-image"]}>
-        <img src={currentImage} alt="cannot get" className={classes.img} />
+        <img
+          src={currentImage.regular}
+          alt="cannot get"
+          className={classes.img}
+        />
       </div>
 
       <div>

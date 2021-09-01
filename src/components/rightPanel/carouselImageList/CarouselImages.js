@@ -1,15 +1,15 @@
 import classes from "./CarouselImages.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { PhotosActions } from "../../../store/photos-slice";
+import { CarouselActions } from "../../../store/carousel-slice";
 
 const CarouselImages = () => {
   const dispatch = useDispatch();
 
   const photos = useSelector((state) => state.photos.photos);
-  const currentImage = useSelector((state) => state.photos.currentImage);
+  const currentImage = useSelector((state) => state.carousel.currentImage);
 
-  const setCurrentImage = (current) => {
-    dispatch(PhotosActions.setCurrentImage({ current: current }));
+  const setCurrentImage = (photo) => {
+    dispatch(CarouselActions.setCurrentImage({ current: photo }));
   };
 
   return (
@@ -17,14 +17,19 @@ const CarouselImages = () => {
       {photos.map((p) => (
         <div
           className={`${classes.img} ${
-            p.regular === currentImage ? classes.current : ""
+            currentImage
+              ? p.id === currentImage.id
+                ? classes.current
+                : ""
+              : ""
           }`}
           key={p.id}
           onClick={() => {
-            setCurrentImage(p.regular);
+            setCurrentImage(p);
           }}
         >
           <img
+            draggable="false"
             src={p.regular}
             alt={p.description ? p.description.slice(0, 10) : "carousel-image"}
           />

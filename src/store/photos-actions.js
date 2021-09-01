@@ -1,5 +1,6 @@
 import { uiActions } from "./ui-slice";
 import { PhotosActions } from "./photos-slice";
+import { CarouselActions } from "./carousel-slice";
 
 import axios from "../apis/index";
 
@@ -15,6 +16,11 @@ export const fetchPhotos = (category, qty = 8) => {
 
       dispatch(
         PhotosActions.replacePhotos({ photos: response.data.photos, category })
+      );
+      dispatch(
+        CarouselActions.replacePhotos({
+          photos: response.data.photos.slice(0, 8),
+        })
       );
     } catch (e) {
       dispatch(uiActions.toggleIsLoading());
