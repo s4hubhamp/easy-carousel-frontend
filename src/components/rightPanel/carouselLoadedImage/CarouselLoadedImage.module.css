@@ -11,6 +11,10 @@
   height: 350px;
 }
 
+.rotate-icon {
+  cursor: pointer;
+}
+
 .img {
   max-width: 100%;
 }

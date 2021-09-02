@@ -1,14 +1,8 @@
 import classes from "./CarouselImages.module.css";
-import { useDispatch, useSelector } from "react-redux";
 import { CarouselActions } from "../../../store/carousel-slice";
 // import { useRef } from "react";
 
-const CarouselImages = () => {
-  const dispatch = useDispatch();
-
-  const photos = useSelector((state) => state.carousel.photos);
-  const currentPhoto = useSelector((state) => state.carousel.currentPhoto);
-
+const CarouselImages = ({ photos, currentPhoto, dispatch }) => {
   const setCurrentImage = (photo) => {
     dispatch(CarouselActions.setCurrentPhoto({ current: photo }));
   };

@@ -1,10 +1,9 @@
-import { useSelector } from "react-redux";
 import classes from "./CarouselLoadedImage.module.css";
 import Spinner from "../../spinner/Spinner";
 
-const CarouselLoadedImage = () => {
-  const currentPhoto = useSelector((state) => state.carousel.currentPhoto);
+import { CarouselActions } from "../../../store/carousel-slice";
 
+const CarouselLoadedImage = ({ currentPhoto, dispatch }) => {
   if (currentPhoto === null) {
     return (
       <div style={{ margin: "auto" }}>
@@ -13,9 +12,13 @@ const CarouselLoadedImage = () => {
     );
   }
 
+  const rotate = (angle) => {
+    dispatch(CarouselActions.rotatePhoto({ angle }));
+  };
+
   return (
     <div className={classes.container}>
-      <div>
+      <div className={classes["rotate-icon"]} onClick={() => rotate(90)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="60"
@@ -33,13 +36,18 @@ const CarouselLoadedImage = () => {
 
       <div className={classes["loaded-image"]}>
         <img
+          style={{
+            transform: `${
+              currentPhoto.angle ? `rotate(${currentPhoto.angle}deg)` : "none"
+            }`,
+          }}
           src={currentPhoto.regular}
           alt="cannot get"
           className={classes.img}
         />
       </div>
 
-      <div>
+      <div className={classes["rotate-icon"]} onClick={() => rotate(-90)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="60"

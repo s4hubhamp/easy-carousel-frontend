@@ -15,16 +15,14 @@ const carouselSlice = createSlice({
       state.currentPhoto = action.payload.current;
     },
     rotatePhoto(state, action) {
-      state.photos = state.photos.map((p) =>
-        p.id === action.payload.id
-          ? {
-              ...p,
-              angle: p.angle
-                ? p.angle + action.payload.angle
-                : action.payload.angle,
-            }
-          : p
-      );
+      const id = state.currentPhoto.id;
+      const reqPhotoIndex = state.photos.findIndex((p) => p.id === id);
+
+      state.photos[reqPhotoIndex].angle
+        ? (state.photos[reqPhotoIndex].angle += action.payload.angle)
+        : (state.photos[reqPhotoIndex].angle = action.payload.angle);
+
+      state.currentPhoto = state.photos[reqPhotoIndex];
     },
     addPhoto(state, action) {
       let exists = false;
