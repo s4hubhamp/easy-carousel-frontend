@@ -3,9 +3,9 @@ import classes from "./CarouselLoadedImage.module.css";
 import Spinner from "../../spinner/Spinner";
 
 const CarouselLoadedImage = () => {
-  const currentImage = useSelector((state) => state.carousel.currentImage);
+  const currentPhoto = useSelector((state) => state.carousel.currentPhoto);
 
-  if (currentImage === null) {
+  if (currentPhoto === null) {
     return (
       <div style={{ margin: "auto" }}>
         <Spinner />
@@ -33,7 +33,7 @@ const CarouselLoadedImage = () => {
 
       <div className={classes["loaded-image"]}>
         <img
-          src={currentImage.regular}
+          src={currentPhoto.regular}
           alt="cannot get"
           className={classes.img}
         />

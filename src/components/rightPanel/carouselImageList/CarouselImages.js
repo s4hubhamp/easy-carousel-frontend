@@ -1,15 +1,16 @@
 import classes from "./CarouselImages.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { CarouselActions } from "../../../store/carousel-slice";
+// import { useRef } from "react";
 
 const CarouselImages = () => {
   const dispatch = useDispatch();
 
-  const photos = useSelector((state) => state.photos.photos);
-  const currentImage = useSelector((state) => state.carousel.currentImage);
+  const photos = useSelector((state) => state.carousel.photos);
+  const currentPhoto = useSelector((state) => state.carousel.currentPhoto);
 
   const setCurrentImage = (photo) => {
-    dispatch(CarouselActions.setCurrentImage({ current: photo }));
+    dispatch(CarouselActions.setCurrentPhoto({ current: photo }));
   };
 
   const allowDrop = (event) => {
@@ -18,26 +19,62 @@ const CarouselImages = () => {
 
   const drop = (event) => {
     event.preventDefault();
-    const id = event.dataTransfer.getData("id");
-    console.log(id);
+    // event.target.style.backgroundColor = "#fff";
+    if (event.dataTransfer.getData("photo") !== "") {
+      const photo = JSON.parse(event.dataTransfer.getData("photo"));
+      dispatch(CarouselActions.addPhoto({ photo }));
+    }
+    // else {
+    //   const draggedElId = event.dataTransfer.getData("id");
+    //   let id;
+    //   if (event.target.tagName === "IMG" || event.target.tagName === "P") {
+    //     id = event.target.parentElement.id;
+    //   } else {
+    //     id = event.target.id;
+    //   }
+
+    //   // dispatch(CarouselActions.reArrange({ id, draggedElId }));
+    // }
   };
 
   const drag = (event, id) => {
     event.dataTransfer.setData("id", id);
   };
 
+  // const dragEnter = (event) => {
+  //   console.log("dragEnter");
+  //   console.dir(event.target.id);
+  //   if (event.dataTransfer.getData("photo") !== "") {
+  //     event.target.style.backgroundColor = "rgb(225, 225, 225)";
+  //   }
+  // };
+
+  // const dragLeave = (event) => {
+  //   console.log("dragLeave");
+  //   console.dir(event.target.id);
+  //   event.target.style.backgroundColor = "#fff";
+  // };
+
   return (
-    <div className={classes.container} onDragOver={allowDrop} onDrop={drop}>
+    <div
+      id="container"
+      className={classes.container}
+      onDragOver={allowDrop}
+      onDrop={drop}
+      // onDragEnter={dragEnter}
+      // onDragLeave={dragLeave}
+    >
       {photos.map((p) => (
         <div
           className={`${classes.img} ${
-            currentImage
-              ? p.id === currentImage.id
+            currentPhoto
+              ? p.id === currentPhoto.id
                 ? classes.current
                 : ""
               : ""
           }`}
           key={p.id}
+          id={p.id}
           draggable="true"
           onDragStart={(event) => {
             drag(event, p.id);
