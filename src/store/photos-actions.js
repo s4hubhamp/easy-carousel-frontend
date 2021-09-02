@@ -11,6 +11,7 @@ export const fetchPhotos = (category, qty = 8) => {
       const response = await axios.get(
         "/search/photos/" + category + "?qty=" + qty
       );
+      console.log(response);
       dispatch(uiActions.toggleIsLoading());
 
       dispatch(
@@ -22,12 +23,12 @@ export const fetchPhotos = (category, qty = 8) => {
         })
       );
     } catch (e) {
+      console.dir(e.response);
       dispatch(uiActions.toggleIsLoading());
-      dispatch(uiActions.toggleShowError());
       dispatch(
-        uiActions.showNotification({
-          status: e.response.status,
-          message: e.response.data.error.message,
+        uiActions.setNotification({
+          status: e.response.status || 500,
+          message: e.response.statusText || "Unknown Error Occured",
         })
       );
     }

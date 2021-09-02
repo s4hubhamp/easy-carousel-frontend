@@ -1,16 +1,37 @@
-.carousel {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 1rem 0;
 }
 
-.carousel h2 {
-  text-decoration: underline;
+.header h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  line-height: 1;
   margin: 0;
+  padding: 0 0 0 1rem;
 }
 
 hr {
   margin: 0;
   border-top: none;
+}
+
+.preview {
+  color: #fff;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+.import {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: 0.9;
 }

@@ -1,6 +1,9 @@
 .spinner {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 .lds-hourglass {
@@ -16,7 +19,7 @@
   margin: 8px;
   box-sizing: border-box;
   border: 22px solid black;
-  border-color: black transparent black transparent;
+  border-color: black transparent blueviolet transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {

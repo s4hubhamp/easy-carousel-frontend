@@ -1,0 +1,81 @@
+.modal {
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  border-radius: 0.3rem;
+  border: 1px solid #d0d7dd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.header {
+  display: flex;
+  padding: 1rem 0 1rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.close {
+  background: none;
+  color: #000;
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0.5;
+}
+
+.body {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+.error {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.status {
+  color: red;
+  font-size: 2rem;
+}
+
+.message {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,13 +1,12 @@
 import classes from "./CarouselLoadedImage.module.css";
-import Spinner from "../../spinner/Spinner";
 
 import { CarouselActions } from "../../../store/carousel-slice";
 
 const CarouselLoadedImage = ({ currentPhoto, dispatch }) => {
   if (currentPhoto === null) {
     return (
-      <div style={{ margin: "auto" }}>
-        <Spinner />
+      <div style={{ margin: "auto", fontSize: "1.2rem" }}>
+        <p>loading...</p>
       </div>
     );
   }
