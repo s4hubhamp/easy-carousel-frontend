@@ -47,8 +47,7 @@ const Preview = () => {
     jsFolder.file("index.js", "const photos=[" + exportData + "]" + JavaScript);
 
     zip.generateAsync({ type: "blob" }).then(function (content) {
-      // see FileSaver.js
-      saveAs(content, "example.zip");
+      saveAs(content, "easy_carousel.zip");
     });
   };
 
@@ -83,7 +82,7 @@ const Preview = () => {
           ))}
         </div>
         <div className="actions">
-          <button className="btn import" disabled>
+          <button className="btn import" type="button" disabled>
             import
           </button>
           <button className="btn export" onClick={onExport}>
