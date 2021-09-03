@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  top: 20vh;
+  top: 10vh;
   left: 5%;
   width: 90%;
   background-color: white;
@@ -13,7 +13,7 @@
 
 .header {
   display: flex;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #dee2e6;
@@ -64,8 +64,8 @@
 
 @media (min-width: 768px) {
   .modal {
-    width: 40rem;
-    left: calc(50% - 20rem);
+    width: 60rem;
+    left: calc(50% - 30rem);
   }
 }
 

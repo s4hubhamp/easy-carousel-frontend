@@ -10,12 +10,10 @@ const Header = ({ dispatch }) => {
     <>
       <div className="header">
         <h2>Easy Carousel</h2>
-        <div className="actions">
-          {/* <button className="btn import">import</button> */}
-          <button className="btn preview" onClick={onPreview}>
-            Preview
-          </button>
-        </div>
+        {/* <button className="btn import">import</button> */}
+        <button className="btn preview" onClick={onPreview}>
+          Preview
+        </button>
       </div>
       <hr />
     </>

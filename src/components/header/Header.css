@@ -25,12 +25,6 @@ hr {
   border-color: blueviolet;
 }
 
-.import {
-  color: #fff;
-  background-color: #000;
-  border-color: #000;
-}
-
 .btn:hover,
 .btn:focus {
   opacity: 0.9;

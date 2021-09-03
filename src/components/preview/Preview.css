@@ -1,0 +1,63 @@
+.carousel-container {
+  padding: 1rem 0;
+}
+
+.slide {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.dashes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  bottom: 50px;
+}
+
+.dash {
+  border: none;
+  background: #fff;
+  height: 4px;
+  width: 25px;
+}
+
+.active-dash {
+  background: blueviolet;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.export {
+  color: #fff;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+.import {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
