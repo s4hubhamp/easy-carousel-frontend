@@ -41,29 +41,35 @@ const Files = () => {
         // onDragEnter={dragEnter}
         // onDragLeave={dragLeave}
       >
-        {photos.map((photo) => (
-          <li
-            className="file-item"
-            key={photo.id}
-            draggable="true"
-            onDragStart={(event) => {
-              drag(event, photo);
-            }}
-          >
-            <p>{photo.id}.jpg</p>
-            <div className="image-thumb">
-              <img
-                draggable="false"
-                src={photo.thumb}
-                alt={
-                  photo.description
-                    ? photo.description.slice(0, 15) + "..."
-                    : "carousel-image"
-                }
-              />
-            </div>
-          </li>
-        ))}
+        {photos.length === 0 ? (
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+            loading...
+          </div>
+        ) : (
+          photos.map((photo) => (
+            <li
+              className="file-item"
+              key={photo.id}
+              draggable="true"
+              onDragStart={(event) => {
+                drag(event, photo);
+              }}
+            >
+              <p>{photo.id}.jpg</p>
+              <div className="image-thumb">
+                <img
+                  draggable="false"
+                  src={photo.thumb}
+                  alt={
+                    photo.description
+                      ? photo.description.slice(0, 15) + "..."
+                      : "carousel-image"
+                  }
+                />
+              </div>
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );
