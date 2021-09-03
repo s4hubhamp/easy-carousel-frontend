@@ -1,6 +1,6 @@
 # Easy Carousel frontend
 
-___you can visit https://easy-carousel.web.app/ to view app online.__
+___you can visit https://easy-carousel.web.app/ to view app online.___
 
 ## Installation
 
